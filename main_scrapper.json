@@ -1,0 +1,282 @@
+{
+  "name": "main_scrapper",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "8045db8b-e6be-4fc5-9eec-bed76928cf29",
+      "name": "Loop over queries",
+      "type": "n8n-nodes-base.splitInBatches",
+      "position": [
+        240,
+        0
+      ],
+      "typeVersion": 3
+    },
+    {
+      "parameters": {},
+      "id": "5e23efec-ae46-4852-a49b-95599bb13330",
+      "name": "Run workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "amount": 3
+      },
+      "id": "82da4ec7-df97-4df4-9c2e-48470519e991",
+      "name": "Wait between executions",
+      "type": "n8n-nodes-base.wait",
+      "position": [
+        680,
+        100
+      ],
+      "webhookId": "40eb11a9-0f7d-4932-993e-0052b69dbf9b",
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "workflowId": {
+          "__rl": true,
+          "value": "YZ9yNU0XZ3EGdpcG",
+          "mode": "list",
+          "cachedResultName": "scrapper"
+        },
+        "workflowInputs": {
+          "mappingMode": "defineBelow",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": true
+        },
+        "mode": "each",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.executeWorkflow",
+      "typeVersion": 1.2,
+      "position": [
+        460,
+        100
+      ],
+      "id": "dafbffbd-6a53-4189-8494-d520506b9be4",
+      "name": "Execute Workflow"
+    }
+  ],
+  "pinData": {
+    "Run workflow": [
+      {
+        "json": {
+          "query": "f-6+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-7+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-8+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-10+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-11+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-6+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-7+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-8+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-9+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-10+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-11+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-13+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "h-8+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "h-9+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "i-8+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "i-9+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "i-10+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "i-11+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "blue+area+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "bahria+town+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "dha+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "pir+sohawa+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "e-11+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-5+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "f-9+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-5+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "g-12+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "i-14+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "rawal+town+islamabad+restaurant"
+        }
+      },
+      {
+        "json": {
+          "query": "peshawar+mor+islamabad+restaurant"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Loop over queries": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Execute Workflow",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Run workflow": {
+      "main": [
+        [
+          {
+            "node": "Loop over queries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait between executions": {
+      "main": [
+        [
+          {
+            "node": "Loop over queries",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait between executions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "fcd89391-6e47-4be3-a05e-189733dc22d1",
+  "meta": {
+    "instanceId": "5a1592b814fb984e8f981529bc915bf26d3765df420aba435f490196fdfdf152"
+  },
+  "id": "fXoXojW8NjX0Ipwy",
+  "tags": []
+}
